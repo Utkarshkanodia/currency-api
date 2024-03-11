@@ -34,6 +34,7 @@ public class CurrencyApiController {
     public Map<String, Double> getCurrencyRates(
             @PathParam("baseCurrency") @Validated @CurrencyConstraint(message = "The '${validatedValue}' not a valid currency code!") Optional<String> baseCurrency) {
         return service.getLatestCurrencyRates(baseCurrency.orElse("USD"));
+    
     }
 
     @GetMapping("/historical/{date}")
