@@ -56,6 +56,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                 .body(body);
         }
 
+        @SuppressWarnings("null")
         @Override
         public  ResponseEntity<Object> handleHandlerMethodValidationException(
 			HandlerMethodValidationException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
