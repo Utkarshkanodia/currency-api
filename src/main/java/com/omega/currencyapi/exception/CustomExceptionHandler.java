@@ -13,8 +13,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.omega.currencyapi.utils.Helper;
-
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -25,7 +23,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                 .message(ex.getMessage())
                                 .exceptionClass(ApiResponseException.class.getSimpleName())
                                 .uri(web.getContextPath())
-                                .tracePath(Helper.generateTracePath()).build();
+                                .tracePath("").build();
                 return ResponseEntity.status(ex.getStatusCode())
                                 .body(body);
         }
@@ -37,7 +35,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                 .message(ex.getMessage())
                                 .exceptionClass(FreeCurrencyApiExcuteException.class.getSimpleName())
                                 .uri(web.getContextPath())
-                                .tracePath(Helper.generateTracePath()).build();
+                                .tracePath("").build();
                 return ResponseEntity
                                 .status(FreeCurrencyApiExcuteException.class.getAnnotation(ResponseStatus.class).code())
                                 .body(body);
@@ -51,7 +49,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                 .message(ex.getMessage())
                                 .exceptionClass(InvalidCurrencyCodeException.class.getSimpleName())
                                 .uri(web.getContextPath())
-                                .tracePath(Helper.generateTracePath()).build();
+                                .tracePath("").build();
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                                 .body(body);
         }
@@ -65,7 +63,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                                 .message(ex.getMessage())
                                 .exceptionClass(HandlerMethodValidationException.class.getSimpleName())
                                 .uri(request.getContextPath())
-                                .tracePath(Helper.generateTracePath()).build();
+                                .tracePath("").build();
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                                 .body(body);
 	}

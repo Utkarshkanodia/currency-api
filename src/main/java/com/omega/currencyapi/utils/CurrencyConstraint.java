@@ -19,6 +19,7 @@ public @interface CurrencyConstraint {
 
     Class<? extends Payload>[] payload() default {};
 
-    //Class<? extends Throwable> exception() default InvalidCurrencyCodeException.class;
+    // TODO 
+    // Class<? extends Throwable> exception() default InvalidCurrencyCodeException.class;
 
 }
